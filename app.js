@@ -18,42 +18,23 @@
         initFaqAccordion();
         initContactForm();
         initServiceCardTilt();
-        initElectricSparksEffect(); // ADDED: Electric Sparks Module
+        initElectricSparksEffect();
     });
 
-    // --- 2. CUSTOM CURSOR MODULE ---
+    // --- 2. CUSTOM CURSOR MODULE (MODIFIED: Removed circle cursor-ring lag) ---
     function initCustomCursor() {
         const cursor = document.getElementById("customCursor");
         if (!cursor) return;
         
         const dot = cursor.querySelector(".cursor-dot");
-        const ring = cursor.querySelector(".cursor-ring");
-        
-        let mouseX = -100, mouseY = -100;
-        let ringX = -100, ringY = -100;
+        if (!dot) return;
         
         document.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            dot.style.left = `${mouseX}px`;
-            dot.style.top = `${mouseY}px`;
+            dot.style.left = `${e.clientX}px`;
+            dot.style.top = `${e.clientY}px`;
         });
         
-        // Render loop for smooth ring lag animation
-        function renderRing() {
-            // Lerp formula: current = current + (target - current) * factor
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            
-            ring.style.left = `${ringX}px`;
-            ring.style.top = `${ringY}px`;
-            
-            requestAnimationFrame(renderRing);
-        }
-        renderRing();
-        
-        // Hover reactions on interactive components
+        // Hover reactions on interactive components (make dot grow/change color)
         const interactiveElements = document.querySelectorAll(
             "a, button, input, select, textarea, .control-switch-item, .radio-card, .faq-trigger, .project-image-wrapper, .electric-text"
         );
@@ -736,7 +717,7 @@
         });
     }
 
-    // --- 12. ADDED: INTERACTIVE ELECTRIC SPARKS EFFECT ---
+    // --- 12. INTERACTIVE ELECTRIC SPARKS EFFECT ---
     function initElectricSparksEffect() {
         const electricTexts = document.querySelectorAll(".electric-text");
         

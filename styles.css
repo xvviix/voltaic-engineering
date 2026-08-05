@@ -20,7 +20,7 @@
     --glass-border: rgba(255, 255, 255, 0.06);
     --glass-blur: 16px;
     
-    /* MODIFIED: High-tech, futuristic fonts */
+    /* High-tech, futuristic fonts */
     --ff-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --ff-display: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
     
@@ -69,7 +69,7 @@ body {
 /* 3. Typography & Utilities */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--ff-display);
-    font-weight: 700; /* Space Grotesk looks best at 700 */
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
 }
@@ -113,9 +113,7 @@ ul {
     padding: 0 24px;
 }
 
-/* ==========================================================================
-   ADDED: DYNAMIC ELECTRIC GLOW & SURGE EFFECT FOR "ELECTRICAL" TEXTS
-   ========================================================================== */
+/* DYNAMIC ELECTRIC GLOW & SURGE EFFECT FOR "ELECTRICAL" TEXTS */
 .electric-text {
     position: relative;
     display: inline-block;
@@ -251,7 +249,7 @@ ul {
     background: var(--accent-amber);
 }
 
-/* Custom Interactive Cursor */
+/* Custom Interactive Cursor (MODIFIED: Removed cursor-ring circle) */
 .custom-cursor {
     position: fixed;
     top: 0;
@@ -269,32 +267,18 @@ ul {
     background-color: var(--accent-volt);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-.cursor-ring {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), 
-                height 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), 
-                border-color 0.3s, background-color 0.3s;
+    box-shadow: 0 0 10px var(--accent-volt);
+    transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.2s, 
+                box-shadow 0.2s;
 }
 
 body.cursor-active .cursor-dot {
     background-color: var(--accent-cyan);
-    width: 8px;
-    height: 8px;
-}
-
-body.cursor-active .cursor-ring {
-    border-color: var(--accent-cyan);
-    width: 48px;
-    height: 48px;
-    background-color: rgba(0, 242, 254, 0.03);
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 15px var(--accent-cyan);
 }
 
 @media (pointer: coarse) {
