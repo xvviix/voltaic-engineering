@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLTA | Premium Electrical Engineering & Smart Automation</title>
+    <!-- Google Fonts: Syne for bold luxury titles, Plus Jakarta Sans for clean technical body copy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Dynamic Custom Cursor -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Ambient Grid & Lighting Backgrounds -->
+    <div class="grid-background"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="logo-text">VOLTA</span>
+            </a>
+            
+            <nav class="nav">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#experience" class="nav-link">Control Center</a>
+                <a href="#estimator" class="nav-link">Estimator</a>
+                <a href="#portfolio" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link nav-btn-mobile">Get Consult</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="grid-status" id="headerGridStatus">
+                    <span class="status-dot pulsing"></span>
+                    <span class="status-label">GRID SECURE: 120.4V</span>
+                </div>
+                <a href="#contact" class="btn btn-primary btn-sm">
+                    <span>Engineering Consult</span>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="about">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Architectural Electrical Masters</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Redefining <span class="text-glow">Electrical</span> Craftsmanship.
+                    </h1>
+                    <p class="hero-subtitle">
+                        From high-performance residential power grids to bespoke smart-home automation. We design and engineer invisible infrastructure for luxury estates and mission-critical commercial spaces.
+                    </p>
+                    <div class="hero-actions-container">
+                        <a href="#estimator" class="btn btn-primary">
+                            <span>Calculate Your Load</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#experience" class="btn btn-secondary">
+                            <span>Interactive Sandbox</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Performance Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3 class="metric-value">&lt; 35m</h3>
+                            <p class="metric-label">Elite Response Guarantee</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3 class="metric-value" id="metricsActiveLoad">99.98%</h3>
+                            <p class="metric-label">Grid Load Efficiency</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3 class="metric-value">1,400+</h3>
+                            <p class="metric-label">Premium Estates Secured</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- High-tech Electrical Oscilloscope / Telemetry Visualizer -->
+                    <div class="telemetry-panel">
+                        <div class="panel-header">
+                            <div class="panel-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="panel-title">TELEMETRY // MAIN_GRID_FEED</div>
+                            <div class="panel-tag">ONLINE</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="oscilloscope-container">
+                                <canvas id="oscilloscope" width="400" height="150"></canvas>
+                                <div class="grid-lines"></div>
+                            </div>
+                            <div class="telemetry-readouts">
+                                <div class="readout-item">
+                                    <span class="readout-label">VOLTAGE STATE</span>
+                                    <span class="readout-value font-mono text-cyan" id="liveVoltage">120.40 V</span>
+                                </div>
+                                <div class="readout-item">
+                                    <span class="readout-label">GRID FREQUENCY</span>
+                                    <span class="readout-value font-mono text-lime" id="liveFrequency">60.00 Hz</span>
+                                </div>
+                                <div class="readout-item">
+                                    <span class="readout-label">TOTAL LOAD</span>
+                                    <span class="readout-value font-mono text-yellow" id="liveLoad">42.8 kW</span>
+                                </div>
+                                <div class="readout-item">
+                                    <span class="readout-label">HARMONIC DIST.</span>
+                                    <span class="readout-value font-mono text-dim">1.18% THD</span>
+                                </div>
+                            </div>
+                            <div class="system-alerts" id="telemetryAlert">
+                                <span class="alert-indicator-ok"></span>
+                                <span class="alert-text">GRID HARMONICS BALANCED. NO FAULTS DETECTED.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator-container">
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-mouse">
+                        <span class="scroll-wheel"></span>
+                    </span>
+                    <span class="scroll-text">EXPLORE THE ARTISTRY</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Core Capabilities</span>
+                    </div>
+                    <h2 class="section-title">High-Voltage Mastery. Low-Voltage Artistry.</h2>
+                    <p class="section-desc">
+                        Our engineering team spans the gap between complex electrical distribution and luxury interior experience, executing every install with flawless precision.
+                    </p>
+                </div>
+
+                <div class="services-grid-layout">
+                    <!-- Service Card 1 -->
+                    <div class="service-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Architectural Lighting & Control</h3>
+                        <p class="service-text">
+                            Bespoke lighting systems, micro-aperture LED alignment, and Lutron Palladiom integration that dynamically balances natural and synthetic light.
+                        </p>
+                        <ul class="service-features">
+                            <li>Lutron, Ketra & Crestron certified</li>
+                            <li>Ultra-smooth, flicker-free dimming (0.1%)</li>
+                            <li>Bespoke fixture integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="service-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 3V21M15 3V21M3 9H21M3 15H21" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Smart Panels & Power Grid</h3>
+                        <p class="service-text">
+                            Next-generation solid-state smart panels (Span) with real-time circuit control, thermal monitoring, and automated whole-home power shedding.
+                        </p>
+                        <ul class="service-features">
+                            <li>200A/400A premium panel upgrades</li>
+                            <li>Individual circuit consumption metrics</li>
+                            <li>Intelligent load-shedding configuration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="service-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M19 18V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V18M19 18H21M19 18H17M5 18H3M5 18H7M7 18H17M9 21H15" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 7V13M10 9L12 7L14 9" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">EV Storage & Smart Microgrids</h3>
+                        <p class="service-text">
+                            Full-scale energy independence systems. We integrate luxury solar roofs, smart Tesla Powerwall grids, and intelligent level 3 multi-EV charging networks.
+                        </p>
+                        <ul class="service-features">
+                            <li>Tesla, Porsche & Rivian certified chargers</li>
+                            <li>Dynamic EV load-balancing systems</li>
+                            <li>Solar tie-ins & grid-isolation switches</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="service-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 16V12M12 8H12.01" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Critical Safety & Thermal Scans</h3>
+                        <p class="service-text">
+                            Preventative safety via military-grade FLIR thermal imaging. We scan panels for invisible hot spots, diagnosing circuit resistance before failures occur.
+                        </p>
+                        <ul class="service-features">
+                            <li>FLIR Infrared structural auditing</li>
+                            <li>Power quality & THD wave analysis</li>
+                            <li>Comprehensive certification reports</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="service-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18H19C20.1046 18 21 17.1046 21 16Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Luxury Audio & Theater Grid</h3>
+                        <p class="service-text">
+                            Pure, noise-isolated power supplies dedicated entirely to high-fidelity audio arrays, premium multi-room acoustics, and zero-interference signal cables.
+                        </p>
+                        <ul class="service-features">
+                            <li>Isolated medical-grade grounding</li>
+                            <li>Zero EM noise circuit pathways</li>
+                            <li>Premium acoustic lighting integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="service-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 6V12L16 14" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">24/7 Priority Emergency Team</h3>
+                        <p class="service-text">
+                            An elite squad of high-level industrial and residential diagnostic engineers on permanent standby. Equipped with mobile fault-finding systems.
+                        </p>
+                        <ul class="service-features">
+                            <li>Guaranteed < 35-min response</li>
+                            <li>Mobile supply vehicles fully stocked</li>
+                            <li>Rapid electrical hazard isolation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Room Experience (The Control Center) -->
+        <section class="experience-section" id="experience">
+            <div class="container">
+                <div class="experience-grid">
+                    <div class="experience-content">
+                        <div class="badge">
+                            <span class="badge-dot"></span>
+                            <span class="badge-text">Interactive Simulation</span>
+                        </div>
+                        <h2 class="section-title">Experience the Smart Grid</h2>
+                        <p class="section-desc">
+                            Step into the cockpit. Toggle the high-fidelity power feeds of a modern custom estate. Witness how Volta orchestrates load distribution, active circuit paths, and emergency shutdowns.
+                        </p>
+
+                        <!-- Controls Panel -->
+                        <div class="control-panel">
+                            <!-- Toggle 1 -->
+                            <div class="control-switch-item" data-zone="ambient">
+                                <div class="switch-info">
+                                    <h4 class="switch-title">Living Room Ambient</h4>
+                                    <p class="switch-subtitle">Soft architectural LEDs (2700K Warm)</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleAmbient" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- Toggle 2 -->
+                            <div class="control-switch-item" data-zone="theatre">
+                                <div class="switch-info">
+                                    <h4 class="switch-title">Home Cinema Node</h4>
+                                    <p class="switch-subtitle">High-fidelity AV circuit & neon backlight</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleTheatre">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- Toggle 3 -->
+                            <div class="control-switch-item" data-zone="kitchen">
+                                <div class="switch-info">
+                                    <h4 class="switch-title">Chef's Kitchen Circuit</h4>
+                                    <p class="switch-subtitle">High-load task lighting & refrigeration grid</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleKitchen" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- Toggle 4 -->
+                            <div class="control-switch-item" data-zone="charger">
+                                <div class="switch-info">
+                                    <h4 class="switch-title">Tesla Supercharger V4</h4>
+                                    <p class="switch-subtitle">Level 3 rapid charging (80A dedicated feed)</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleCharger">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- Toggle 5 (Emergency Master) -->
+                            <div class="control-switch-item danger-switch" data-zone="master">
+                                <div class="switch-info">
+                                    <h4 class="switch-title">EMERGENCY GRID ISOLATOR</h4>
+                                    <p class="switch-subtitle text-yellow">Shed non-essential electrical loads instantly</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleMaster" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-visual">
+                        <!-- Custom vector map of a luxury villa with electrical overlays -->
+                        <div class="house-container">
+                            <div class="house-status-bar">
+                                <span class="house-status-text">SYSTEM STATUS: <strong class="text-lime" id="houseStatusLabel">OPTIMAL</strong></span>
+                                <span class="house-power-text">ESTATE LOAD: <strong class="text-cyan" id="houseLoadLabel">2.4 kW</strong></span>
+                            </div>
+                            
+                            <!-- House Map Vector Overlay -->
+                            <svg class="house-svg" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background grid for blueprints -->
+                                <defs>
+                                    <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+                                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+                                    </pattern>
+                                    
+                                    <!-- Linear Glow Gradients -->
+                                    <linearGradient id="electricGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#C6FF00" stop-opacity="0.8"/>
+                                        <stop offset="100%" stop-color="#00F2FE" stop-opacity="0.8"/>
+                                    </linearGradient>
+                                    
+                                    <!-- Drop Shadows / Glow Filters -->
+                                    <filter id="glow-ambient-filter" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="15" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                    <filter id="glow-theatre-filter" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="18" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                    <filter id="glow-charger-filter" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="12" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                
+                                <rect width="100%" height="100%" fill="url(#gridPattern)"/>
+
+                                <!-- Outer Walls (Architectural Blueprint Style) -->
+                                <path d="M 50 80 L 400 80 L 400 370 L 50 370 Z" stroke="rgba(255, 255, 255, 0.15)" stroke-width="3" stroke-linecap="round"/>
+                                <!-- Garage / Charger wing -->
+                                <path d="M 400 180 L 550 180 L 550 370 L 400 370" stroke="rgba(255, 255, 255, 0.15)" stroke-width="3" stroke-linecap="round"/>
+                                
+                                <!-- Interior Dividers -->
+                                <path d="M 220 80 L 220 220 L 50 220" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" stroke-dasharray="4 4"/>
+                                <path d="M 220 220 L 400 220" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" stroke-dasharray="4 4"/>
+                                <path d="M 220 220 L 220 370" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" stroke-dasharray="4 4"/>
+                                
+                                <!-- Labels of Rooms -->
+                                <text x="135" y="115" fill="rgba(255,255,255,0.4)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1" text-anchor="middle">01 // CHEF KITCHEN</text>
+                                <text x="135" y="250" fill="rgba(255,255,255,0.4)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1" text-anchor="middle">02 // HOME CINEMA</text>
+                                <text x="310" y="115" fill="rgba(255,255,255,0.4)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1" text-anchor="middle">03 // LUXURY SUITE</text>
+                                <text x="310" y="250" fill="rgba(255,255,255,0.4)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1" text-anchor="middle">04 // LIVING AREA</text>
+                                <text x="475" y="215" fill="rgba(255,255,255,0.4)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1" text-anchor="middle">05 // GARAGE & EV</text>
+
+                                <!-- Interactive Glow Zones (controlled by JS) -->
+                                <!-- 1. Kitchen Zone glow (top-left) -->
+                                <rect id="svgZoneKitchen" x="53" y="83" width="164" height="134" fill="rgba(198, 255, 0, 0.08)" filter="url(#glow-ambient-filter)" class="zone-light active"/>
+                                <!-- 2. Home Theatre glow (bottom-left) -->
+                                <rect id="svgZoneTheatre" x="53" y="223" width="164" height="144" fill="rgba(0, 242, 254, 0.12)" filter="url(#glow-theatre-filter)" class="zone-light"/>
+                                <!-- 3. Living Room Ambient glow (bottom-right) -->
+                                <rect id="svgZoneAmbient" x="223" y="223" width="174" height="144" fill="rgba(255, 179, 0, 0.08)" filter="url(#glow-ambient-filter)" class="zone-light active"/>
+                                <!-- 4. Garage Charger glow (right) -->
+                                <rect id="svgZoneCharger" x="403" y="183" width="144" height="184" fill="rgba(0, 229, 255, 0.15)" filter="url(#glow-charger-filter)" class="zone-light"/>
+
+                                <!-- Electrical Wire Conduit Lines (Animated stroke-dasharray) -->
+                                <!-- Main Service Feed coming into House (bottom) -->
+                                <path id="svgFeedMain" d="M 310 420 L 310 370" stroke="#C6FF00" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="310" cy="370" r="5" fill="#C6FF00" class="main-hub-dot"/>
+                                
+                                <!-- Feeds running from Main Hub to rooms -->
+                                <path id="feedKitchen" d="M 310 370 L 310 220 L 135 220 L 135 150" stroke="#C6FF00" stroke-width="1.5" stroke-dasharray="6 6" class="wire-pulse active"/>
+                                <path id="feedTheatre" d="M 310 370 L 135 370 L 135 280" stroke="#00F2FE" stroke-width="1.5" stroke-dasharray="6 6" class="wire-pulse"/>
+                                <path id="feedAmbient" d="M 310 370 L 310 280" stroke="#FFB300" stroke-width="1.5" stroke-dasharray="6 6" class="wire-pulse active"/>
+                                <path id="feedCharger" d="M 310 370 L 400 370 L 475 370 L 475 280" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="6 6" class="wire-pulse"/>
+
+                                <!-- Visual representations of load targets (icons in layout) -->
+                                <!-- Kitchen Appliance -->
+                                <circle cx="135" cy="150" r="10" fill="#121214" stroke="rgba(255,255,255,0.3)"/>
+                                <path d="M 131 150 L 139 150 M 135 146 L 135 154" stroke="rgba(255,255,255,0.7)"/>
+                                
+                                <!-- Cinema Screen Node -->
+                                <rect x="110" y="275" width="50" height="10" rx="2" fill="#121214" stroke="rgba(255,255,255,0.3)"/>
+                                <text x="135" y="282" fill="white" font-size="6" text-anchor="middle">AV_NODE</text>
+                                
+                                <!-- Living Room Chandelier Node -->
+                                <circle cx="310" cy="280" r="12" fill="#121214" stroke="rgba(255,255,255,0.3)"/>
+                                <path d="M 305 280 L 315 280 M 310 275 L 310 285" stroke="rgba(255,255,255,0.7)"/>
+
+                                <!-- EV Car Charging Visual -->
+                                <g transform="translate(450, 250)">
+                                    <rect width="50" height="30" rx="5" fill="#121214" stroke="rgba(255,255,255,0.3)"/>
+                                    <path d="M 15 15 L 25 10 L 22 20 L 35 15" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Load & Cost Estimator -->
+        <section class="estimator-section" id="estimator">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Interactive Calculator</span>
+                    </div>
+                    <h2 class="section-title">Design Your System Load</h2>
+                    <p class="section-desc">
+                        Select your project parameters below to compute an estimated structural electrical load (kW/Amperage), ideal distribution configuration, and standard budgetary range.
+                    </p>
+                </div>
+
+                <div class="estimator-wrapper">
+                    <!-- Calculator Panel -->
+                    <div class="estimator-form">
+                        <div class="form-grid">
+                            <!-- Field 1 -->
+                            <div class="input-group">
+                                <label class="input-label">Estate / Property Type</label>
+                                <div class="custom-select-wrapper">
+                                    <select id="estProperty" class="custom-select">
+                                        <option value="apartment">Luxury Apartment / Penthouse (1,500 - 3,000 sq ft)</option>
+                                        <option value="villa" selected>Premium Villa (3,000 - 6,000 sq ft)</option>
+                                        <option value="estate">Luxury Estate (6,000+ sq ft)</option>
+                                        <option value="commercial">Boutique Commercial Hub</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Field 2 -->
+                            <div class="input-group">
+                                <label class="input-label">Principal System Focus</label>
+                                <div class="custom-select-wrapper">
+                                    <select id="estService" class="custom-select">
+                                        <option value="smart-home" selected>Integrated Smart Automation (Lutron/Crestron)</option>
+                                        <option value="panel-grid">Smart Panel & Complete Grid Overhaul</option>
+                                        <option value="lighting-design">Bespoke Architectural Lighting Design</option>
+                                        <option value="emergency-standby">Backup Power Grid & Tesla Powerwall</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Field 3 -->
+                            <div class="input-group">
+                                <label class="input-label">EV Supercharging Station</label>
+                                <div class="estimator-radio-group">
+                                    <label class="radio-card">
+                                        <input type="radio" name="estEV" value="no" checked>
+                                        <div class="radio-card-content">
+                                            <span class="radio-title">None</span>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="estEV" value="yes">
+                                        <div class="radio-card-content">
+                                            <span class="radio-title">80A Dedicated</span>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="estEV" value="dual">
+                                        <div class="radio-card-content">
+                                            <span class="radio-title">Dual Chargers</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Field 4 -->
+                            <div class="input-group">
+                                <label class="input-label">Solar Roof Integration</label>
+                                <div class="estimator-radio-group">
+                                    <label class="radio-card">
+                                        <input type="radio" name="estSolar" value="no" checked>
+                                        <div class="radio-card-content">
+                                            <span class="radio-title">No Solar</span>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="estSolar" value="yes">
+                                        <div class="radio-card-content">
+                                            <span class="radio-title">Tesla Solar Roof</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="estimator-output">
+                        <div class="output-inner">
+                            <h3 class="output-title">Telemetry Projections</h3>
+                            
+                            <div class="output-metrics">
+                                <div class="out-metric-box">
+                                    <span class="out-label">ESTIMATED SYSTEM LOAD</span>
+                                    <span class="out-value font-mono text-cyan" id="outLoad">15.0 kW</span>
+                                </div>
+                                <div class="out-metric-box">
+                                    <span class="out-label">MINIMUM AMPERAGE</span>
+                                    <span class="out-value font-mono text-lime" id="outAmps">200 Amps</span>
+                                </div>
+                                <div class="out-metric-box">
+                                    <span class="out-label">RECOMMENDED DISTRIBUTION</span>
+                                    <span class="out-value" id="outPanel">Lutron + Span Smart 200A</span>
+                                </div>
+                            </div>
+
+                            <div class="price-range-container">
+                                <span class="price-label">ESTIMATED PROJECT BUDGET RANGE</span>
+                                <span class="price-value" id="outBudget">$8,500 - $14,000</span>
+                                <span class="price-note">*Includes professional premium engineering layout, white-glove wiring, and full circuit certification.</span>
+                            </div>
+
+                            <button class="btn btn-primary btn-full" id="btnApplyEstimate">
+                                <span>Inject Specifications Into Consultation</span>
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Wire Art Standard (Before / After Comparison) -->
+        <section class="standard-section">
+            <div class="container standard-grid">
+                <div class="standard-visual">
+                    <!-- Split Interactive Slider comparing sloppy wiring with Volta Artistry -->
+                    <div class="comparison-slider" id="wireSlider">
+                        <!-- Before (Standard messy work) -->
+                        <div class="slider-panel panel-before">
+                            <div class="panel-image" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%231A1A1E%22/><text x=%22300%22 y=%2250%22 fill=%22%23E11D48%22 font-family=%22Syne%22 font-size=%2224%22 font-weight=%22800%22 text-anchor=%22middle%22>STANDARD INDUSTRY PRACTICE</text><g stroke=%22%23FF4D4D%22 stroke-width=%223%22 fill=%22none%22 stroke-linecap=%22round%22 opacity=%220.6%22><path d=%22M50 150 C120 120 180 320 280 180 C320 20 420 380 550 120%22/><path d=%22M80 80 C180 380 120 180 320 320 C420 80 480 310 520 150%22/><path d=%22M100 280 L210 120 L310 290 L450 100 L500 350%22 stroke=%22%23F59E0B%22 stroke-width=%221.5%22/><path d=%22M40 320 C180 310 220 120 380 210 C420 380 500 280 560 300%22 stroke=%22%236B7280%22/><path d=%22M120 350 C320 200 120 80 410 120 C480 120 450 350 490 380%22 stroke=%22%23F59E0B%22/></g><rect x=%2220%22 y=%22340%22 width=%22220%22 height=%2240%22 rx=%225%22 fill=%22%23E11D48%22/><text x=%22130%22 y=%22365%22 fill=%22white%22 font-family=%22Plus Jakarta Sans%22 font-size=%2214%22 font-weight=%22700%22 text-anchor=%22middle%22>CHAOTIC & HAZARDOUS</text></svg>');"></div>
+                        </div>
+                        
+                        <!-- After (Volta perfection) -->
+                        <div class="slider-panel panel-after">
+                            <div class="panel-image" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A0A0B%22/><text x=%22300%22 y=%2250%22 fill=%22%23C6FF00%22 font-family=%22Syne%22 font-size=%2224%22 font-weight=%22800%22 text-anchor=%22middle%22>THE VOLTA ARTISTRY STANDARD</text><g stroke=%22%23C6FF00%22 stroke-width=%223%22 fill=%22none%22 stroke-linecap=%22round%22><path d=%22M 100 100 L 100 320 L 500 320%22/><path d=%22M 140 100 L 140 300 L 500 300%22/><path d=%22M 180 100 L 180 280 L 500 280%22/><path d=%22M 220 100 L 220 260 L 500 260%22 stroke=%22%2300F2FE%22/><path d=%22M 260 100 L 260 240 L 500 240%22 stroke=%22%2300F2FE%22/></g><g stroke=%22%23121214%22 stroke-width=%226%22 fill=%22none%22><line x1=%2290%22 y1=%22120%22 x2=%22270%22 y2=%22120%22/><line x1=%2290%22 y1=%22200%22 x2=%22270%22 y2=%22200%22/><line x1=%22300%22 y1=%22280%22 x2=%22480%22 y2=%22280%22 stroke=%22%23121214%22/><line x1=%22300%22 y1=%22300%22 x2=%22480%22 y2=%22300%22 stroke=%22%23121214%22/></g><g stroke=%22%23ffffff%22 stroke-width=%221.5%22 opacity=%220.6%22 fill=%22none%22><line x1=%2290%22 y1=%22120%22 x2=%22270%22 y2=%22120%22/><line x1=%2290%22 y1=%22200%22 x2=%22270%22 y2=%22200%22/><line x1=%22300%22 y1=%22280%22 x2=%22480%22 y2=%22280%22/><line x1=%22300%22 y1=%22300%22 x2=%22480%22 y2=%22300%22/></g><rect x=%22360%22 y=%22340%22 width=%22220%22 height=%2240%22 rx=%225%22 fill=%22%23C6FF00%22/><text x=%22470%22 y=%22365%22 fill=%22black%22 font-family=%22Plus Jakarta Sans%22 font-size=%2214%22 font-weight=%22700%22 text-anchor=%22middle%22>CLEAN, LABELED, SECURE</text></svg>');"></div>
+                        </div>
+
+                        <!-- Slider Handle -->
+                        <div class="slider-handle">
+                            <span class="handle-line"></span>
+                            <span class="handle-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8L22 12L18 16M6 8L2 12L6 16" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span class="handle-line"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="standard-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Volta Wire Philosophy</span>
+                    </div>
+                    <h2 class="section-title">Wiring as High Art.</h2>
+                    <p class="section-desc">
+                        A typical contractor leaves panels looking like a rat's nest of tangled leads, driving high electromagnetic interference and dangerous resistive heat pockets.
+                    </p>
+                    <p class="section-text">
+                        We treat wiring like architectural engineering. Every cable is combed, perfectly aligned, zip-tied at uniform intervals, meticulously color-coded, and labeled for lifetime ease of service. When you open a Volta electrical bay, you witness mathematical order.
+                    </p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✔</span>
+                            <div>
+                                <h5>90° Comb Alignment</h5>
+                                <p>Maximum cooling flow around active high-load copper leads.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✔</span>
+                            <div>
+                                <h5>Laser-Printed Thermal Tags</h5>
+                                <p>Instantly spot circuit destinations during audits or maintenance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Portfolio -->
+        <section class="portfolio-section" id="portfolio">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Selected Commissions</span>
+                    </div>
+                    <h2 class="section-title">Architectural Monuments</h2>
+                    <p class="section-desc mx-auto">
+                        A curated showcase of bespoke architectural estates engineered, illuminated, and automated by the Volta group.
+                    </p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card">
+                        <div class="project-image-wrapper">
+                            <!-- SVGs are perfectly self-contained for offline loading -->
+                            <svg class="project-image" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#1E293B"/>
+                                <!-- Abstract lines of architectural lighting design -->
+                                <path d="M 0 100 L 400 250 M 0 250 L 400 100" stroke="rgba(0, 242, 254, 0.15)" stroke-width="2"/>
+                                <path d="M 100 0 L 100 300 M 300 0 L 300 300" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <!-- Modern Villa line art -->
+                                <path d="M 80 250 L 150 150 L 320 150 L 320 250 Z" stroke="#C6FF00" stroke-width="2" stroke-linejoin="round"/>
+                                <rect x="180" y="180" width="100" height="70" fill="rgba(198, 255, 0, 0.1)" stroke="#C6FF00" stroke-width="1.5"/>
+                                <text x="20" y="40" fill="white" font-family="Syne" font-size="14" font-weight="700">01 // THE OBSIDIAN RESIDENCE</text>
+                                <text x="20" y="60" fill="rgba(255,255,255,0.5)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1">LUTRON PALADIOM / LUXURY SOLAR MICROGRID</text>
+                            </svg>
+                            <div class="project-overlay">
+                                <span class="project-view-btn">Inspect Grid</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Smart Automation & Solar Microgrid</span>
+                            <h4 class="project-title">The Obsidian Residence</h4>
+                            <p class="project-summary">A 9,200 sq. ft. modern glass luxury estate fully automated on a 400-Amp custom panel, integrated with dual level 3 EV chargers and a whole-home isolated battery array.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-card">
+                        <div class="project-image-wrapper">
+                            <svg class="project-image" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="#0F172A"/>
+                                <circle cx="200" cy="150" r="100" stroke="rgba(198,255,0,0.1)" stroke-width="2"/>
+                                <circle cx="200" cy="150" r="60" stroke="rgba(0,242,254,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+                                <path d="M 50 150 L 350 150" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <!-- Futuristic building schematic -->
+                                <rect x="120" y="80" width="160" height="140" stroke="#00F2FE" stroke-width="2" stroke-linejoin="round" fill="rgba(0, 242, 254, 0.05)"/>
+                                <line x1="120" y1="120" x2="280" y2="120" stroke="#00F2FE" stroke-width="1" stroke-dasharray="4 4"/>
+                                <line x1="120" y1="160" x2="280" y2="160" stroke="#00F2FE" stroke-width="1" stroke-dasharray="4 4"/>
+                                <text x="20" y="40" fill="white" font-family="Syne" font-size="14" font-weight="700">02 // HELIOS MEDICAL LABS</text>
+                                <text x="20" y="60" fill="rgba(255,255,255,0.5)" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1">MISSION-CRITICAL BALANCED POWER GRID</text>
+                            </svg>
+                            <div class="project-overlay">
+                                <span class="project-view-btn">Inspect Grid</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">High-Voltage Distribution & Clean Power</span>
+                            <h4 class="project-title">Helios Medical Labs</h4>
+                            <p class="project-summary">Engineering a triple-redundant electrical substation with Medical-grade isolated ground lines and dynamic active harmonic power filters (under 1.0% THD).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Client Testimonials</span>
+                    </div>
+                    <h2 class="section-title">Endorsed by Architects</h2>
+                    <p class="section-desc mx-auto">
+                        Discover why leading ultra-luxury builders, high-end interior studios, and estate managers rely on Volta's strict engineering standard.
+                    </p>
+                </div>
+
+                <div class="testimonials-slider-container">
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <!-- Card 1 -->
+                        <div class="testimonial-card">
+                            <div class="test-rating">★★★★★</div>
+                            <p class="test-text">
+                                "As an architect, finding electrical subcontractors who respect fine millwork and architectural lighting diagrams is exceptionally rare. Volta executed our clean drywall reveals and Lutron keypad alignments perfectly. Their wiring inside the panels looks like digital artwork."
+                            </p>
+                            <div class="test-author">
+                                <div class="author-details">
+                                    <h5 class="author-name">Marcus Vance</h5>
+                                    <span class="author-title">Principal, Vance Architectural Group</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="testimonial-card">
+                            <div class="test-rating">★★★★★</div>
+                            <p class="test-text">
+                                "Volta completely transformed our estate grid. When our smart panel detects a heavy grid event, the whole-home load-shedding battery configuration is so flawless we don't even see the lights flicker. Incredible engineers who speak the language of absolute luxury design."
+                            </p>
+                            <div class="test-author">
+                                <div class="author-details">
+                                    <h5 class="author-name">Elena Rostova</h5>
+                                    <span class="author-title">Estate Owner, Atherton</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="testimonial-card">
+                            <div class="test-rating">★★★★★</div>
+                            <p class="test-text">
+                                "Their rapid diagnostic service is unmatched. We had a neutral grid fault at our retail flagships at 3:00 AM on a holiday weekend. Volta’s emergency crew isolated the failure, rerouted emergency load paths, and saved over $300k of architectural smart glass systems."
+                            </p>
+                            <div class="test-author">
+                                <div class="author-details">
+                                    <h5 class="author-name">Robert Sterling</h5>
+                                    <span class="author-title">Director of Infrastructure, Sterling Properties</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-dots" id="testimonialsDots">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Inquiries & Details</span>
+                    </div>
+                    <h2 class="section-title">Consultation Intelligence</h2>
+                    <p class="section-desc mx-auto">
+                        Find swift engineering answers regarding our technical limits, emergency dispatch, and custom panel processes.
+                    </p>
+                </div>
+
+                <div class="faq-accordion-container">
+                    <!-- Accordion Item 1 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span class="faq-question">What defines Volta's premium engineering standards over basic electrical contractors?</span>
+                            <span class="faq-icon-box">
+                                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M12 5L7 10L2 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content">
+                            <p class="faq-text">
+                                We approach electrical grids with absolute engineering rigour. Every circuit layout is fully calculated for dynamic loads and balanced across three phases to prevent uneven voltage wear. Our panels feature 90-degree structured wiring loops with individual visual circuit trackers, medical-grade isolated ground paths for pure signals, and standard digital telemetry dashboards. We do not use basic commercial plastics; we build out of anodized aerospace alloys and secure conduits.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span class="faq-question">How does your 24/7 Rapid Response Guarantee function?</span>
+                            <span class="faq-icon-box">
+                                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M12 5L7 10L2 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content">
+                            <p class="faq-text">
+                                We maintain a dedicated elite rapid diagnostic squad around the clock. If you experience an emergency, you do not call an automated voicemail system. You reach a senior systems dispatcher who immediately triggers a custom tracking link. Our mobile vehicles are fully equipped with specialized tools, thermal FLIR imaging sensors, circuit analyzers, and temporary backup power supplies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span class="faq-question">Are you certified with premium systems like Lutron Homeworks, Ketra, and Tesla?</span>
+                            <span class="faq-icon-box">
+                                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M12 5L7 10L2 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content">
+                            <p class="faq-text">
+                                Yes. Every master technician on our engineering staff has completed advanced certified training directly at the Lutron Experience Centers, Crestron Academies, and Tesla charging development labs. This enables us to install, test, certify, and directly program ultra-advanced systems (such as Ketra's natural light spectrum adaptive grids or Lutron Homeworks Palladiom interfaces) with full manufacturer-backed lifetime warranties.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span class="faq-question">Can you install smart energy panels like Span in existing houses?</span>
+                            <span class="faq-icon-box">
+                                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M12 5L7 10L2 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content">
+                            <p class="faq-text">
+                                Yes. Retrofitting existing residences with high-end, solid-state smart panels is one of our primary capabilities. We safely isolate your old service feed, coordinate directly with your utility provider for temporary isolation, and execute the installation of the smart distribution hub. This instantly transitions your property into a modern grid, allowing you to selectively shut down non-critical circuits directly from your smartphone, configure battery backup priorities, and monitor solar or EV charging limits in real-time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Contact / Form -->
+        <section class="contact-section" id="contact">
+            <div class="container contact-grid">
+                <div class="contact-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Secure Grid Access</span>
+                    </div>
+                    <h2 class="section-title">Initiate Your Engineering Design.</h2>
+                    <p class="section-desc">
+                        Connect with our engineering dispatch. Fill out our telemetry intake sheet, and a senior electrical master will reach out to analyze your property's electrical scope.
+                    </p>
+                    
+                    <div class="contact-info-cards">
+                        <div class="info-card">
+                            <span class="info-icon">⚡</span>
+                            <div>
+                                <span class="info-label">Direct Hotline (24/7 Rapid)</span>
+                                <span class="info-val font-mono">+1 (800) 555-VOLT</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">✉</span>
+                            <div>
+                                <span class="info-label">Engineering Dispatch</span>
+                                <span class="info-val font-mono">dispatch@voltaic.engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <!-- Glassmorphic Form Card -->
+                    <div class="contact-form-card">
+                        <div class="form-header-line">
+                            <span class="indicator-glow online"></span>
+                            <span class="indicator-title">SECURE SYSTEM REGISTRATION // VOLTA_PORTAL</span>
+                        </div>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <!-- Name Row -->
+                            <div class="form-row">
+                                <div class="form-input-group">
+                                    <label class="form-label" for="contactName">ENGINEER / PATRON NAME</label>
+                                    <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Sterling Architectural Group" required>
+                                </div>
+                            </div>
+
+                            <!-- Email / Phone Row -->
+                            <div class="form-row split-row">
+                                <div class="form-input-group">
+                                    <label class="form-label" for="contactEmail">EMAIL ENDPOINT</label>
+                                    <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@domain.com" required>
+                                </div>
+                                <div class="form-input-group">
+                                    <label class="form-label" for="contactPhone">SECURE TELEPHONE</label>
+                                    <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" required>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Specifications Injector Indicator -->
+                            <div class="specs-injector-indicator" id="specsIndicator">
+                                <span class="specs-indicator-dot"></span>
+                                <span id="specsIndicatorText">NO INJECTED CALCULATOR ESTIMATES DETECTED. Run estimator above to pre-fill load values.</span>
+                            </div>
+
+                            <!-- Hidden field to hold calculated load specifications from Estimator tool -->
+                            <input type="hidden" id="injectedSpecs" name="injectedSpecs" value="None">
+
+                            <!-- Scope / Notes -->
+                            <div class="form-row">
+                                <div class="form-input-group">
+                                    <label class="form-label" for="contactMessage">GRID DESCRIPTION & REQUIREMENT SPECIFICATION</label>
+                                    <textarea id="contactMessage" name="message" class="form-input form-textarea" placeholder="Detail any Lutron layouts, sub-station capacities, or smart grids required..." required></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full" id="btnSubmitForm">
+                                <span>Establish Connection & Request Booking</span>
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <!-- Spark Overlay for JS electrical surge effect on submit -->
+                        <div class="electrical-spark-overlay" id="sparkOverlay">
+                            <div class="surge-effect">
+                                <div class="spark-line font-mono">ESTABLISHING ENCRYPTED LINK...</div>
+                                <div class="spark-line font-mono">DIAGNOSING TRANSMISSION NODES...</div>
+                                <div class="spark-line font-mono text-lime">VOLTA PORTAL LINK CONNECTED.</div>
+                                <div class="spark-line font-mono text-cyan">ESTATE DETAILS REGISTERED. DISPATCH NOTIFIED.</div>
+                                <button class="btn btn-primary btn-sm mt-4" id="btnResetPortal">Close Portal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="logo-text">VOLTA</span>
+                </a>
+                <p class="footer-tagline">Architectural Smart Energy & Luxury Engineering Systems.</p>
+                
+                <div class="live-grid-telemetry">
+                    <div class="telemetry-item">
+                        <span class="telemetry-dot blinking"></span>
+                        <span class="telemetry-txt font-mono">NODE_US_EAST_09: ACTIVE // NO GROUND FAULTS DETECTED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links-group">
+                <h5 class="footer-heading">Capabilities</h5>
+                <ul class="footer-links">
+                    <li><a href="#services">Smart Panels</a></li>
+                    <li><a href="#services">Lutron Systems</a></li>
+                    <li><a href="#services">Tesla Battery Storage</a></li>
+                    <li><a href="#services">Architectural Illumination</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-group">
+                <h5 class="footer-heading">Experience</h5>
+                <ul class="footer-links">
+                    <li><a href="#experience">The Control Center</a></li>
+                    <li><a href="#estimator">Structural Load Tool</a></li>
+                    <li><a href="#portfolio">Atherton Portfolio</a></li>
+                    <li><a href="#about">The Quality Standard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-group">
+                <h5 class="footer-heading">Contact</h5>
+                <ul class="footer-links">
+                    <li><span class="font-mono">1 (800) 555-VOLT</span></li>
+                    <li><span class="font-mono">dispatch@voltaic.engineering</span></li>
+                    <li><span>Office: 1400 Sand Hill Rd, Palo Alto, CA</span></li>
+                    <li><span class="text-lime font-mono">License: #EL-8942007-S</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="copyright">© 2026 VOLTAIC ENGINEERING INC. ALL RIGHTS RESERVED. WHITE-GLOVE SYSTEM ENGINEERING.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Protocol</a>
+                    <a href="#">Service Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
