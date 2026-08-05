@@ -18,6 +18,7 @@
         initFaqAccordion();
         initContactForm();
         initServiceCardTilt();
+        initElectricSparksEffect(); // ADDED: Electric Sparks Module
     });
 
     // --- 2. CUSTOM CURSOR MODULE ---
@@ -54,7 +55,7 @@
         
         // Hover reactions on interactive components
         const interactiveElements = document.querySelectorAll(
-            "a, button, input, select, textarea, .control-switch-item, .radio-card, .faq-trigger, .project-image-wrapper"
+            "a, button, input, select, textarea, .control-switch-item, .radio-card, .faq-trigger, .project-image-wrapper, .electric-text"
         );
         
         interactiveElements.forEach((el) => {
@@ -733,6 +734,59 @@
                 card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
             });
         });
+    }
+
+    // --- 12. ADDED: INTERACTIVE ELECTRIC SPARKS EFFECT ---
+    function initElectricSparksEffect() {
+        const electricTexts = document.querySelectorAll(".electric-text");
+        
+        electricTexts.forEach(el => {
+            el.addEventListener("mousemove", (e) => {
+                // Generate sparks selectively with random throttle to keep rendering 60 FPS
+                if (Math.random() > 0.4) {
+                    createSpark(e.clientX, e.clientY);
+                }
+            });
+            
+            // Generate minor extra burst on mouse enter
+            el.addEventListener("mouseenter", (e) => {
+                for (let i = 0; i < 6; i++) {
+                    setTimeout(() => createSpark(e.clientX, e.clientY), i * 40);
+                }
+            });
+        });
+        
+        function createSpark(x, y) {
+            const spark = document.createElement("div");
+            spark.classList.add("electric-spark-particle");
+            
+            // Alternating neon voltages colors (volt green or cyan)
+            const isCyan = Math.random() > 0.5;
+            spark.style.backgroundColor = isCyan ? "var(--accent-cyan)" : "var(--accent-volt)";
+            spark.style.boxShadow = isCyan ? "0 0 10px var(--accent-cyan), 0 0 15px var(--accent-cyan)" : "0 0 10px var(--accent-volt), 0 0 15px var(--accent-volt)";
+            
+            // Placement coordinates (absolute centered)
+            spark.style.left = `${x}px`;
+            spark.style.top = `${y}px`;
+            
+            // Randomize scattering trajectory in 360 degrees
+            const tx = (Math.random() - 0.5) * 100;
+            const ty = (Math.random() - 0.5) * 100;
+            spark.style.setProperty("--tx", `${tx}px`);
+            spark.style.setProperty("--ty", `${ty}px`);
+            
+            // Randomize visual diameter
+            const size = 3 + Math.random() * 4;
+            spark.style.width = `${size}px`;
+            spark.style.height = `${size}px`;
+            
+            document.body.appendChild(spark);
+            
+            // Self-purge node on fade-out animation termination
+            setTimeout(() => {
+                spark.remove();
+            }, 600);
+        }
     }
 
 })();
